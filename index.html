@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Love Quiz 💘</title>
+<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+<div class="quiz-wrapper">
+
+    <h1>Love Quiz 💖</h1>
+
+    <!-- Progress Bar -->
+    <div class="progress-section">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="progress-text" id="progressText">0 / 4 Completed</div>
+    </div>
+
+    <div class="quiz-box">
+
+        <!-- Floating Heart -->
+        <div id="heartFlash">❤️</div>
+
+        <form id="quizForm">
+
+            <!-- Q1 -->
+            <div class="question active">
+                <p>1. When did I first fell for you?</p>
+                <label><input type="radio" name="q1" value="5"> Sep 27</label>
+                <label><input type="radio" name="q1" value="10"> Sep 22</label>
+                <label><input type="radio" name="q1" value="15" data-correct="true"> Sep 28</label>
+                <label><input type="radio" name="q1" value="0"> I don't remember 🤔</label>
+                <button type="button" onclick="nextQuestion(0)">Next →</button>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question">
+                <p>2. First gift I gave you?</p>
+                <label><input type="radio" name="q2" value="5"> Chocolate</label>
+                <label><input type="radio" name="q2" value="10" data-correct="true"> Dress</label>
+                <label><input type="radio" name="q2" value="15"> Flower</label>
+                <label><input type="radio" name="q2" value="0"> Teddy</label>
+                <button type="button" onclick="nextQuestion(1)">Next →</button>
+            </div>
+
+            <!-- Q3 -->
+            <div class="question">
+                <p>3. Where should we travel next?</p>
+                <label><input type="radio" name="q3" value="15"> Ladakh</label>
+                <label><input type="radio" name="q3" value="10"> Kochin</label>
+                <label><input type="radio" name="q3" value="12"> Yercaud</label>
+                <label><input type="radio" name="q3" value="8"> Anywhere together</label>
+                <button type="button" onclick="nextQuestion(2)">Next →</button>
+            </div>
+
+            <!-- Q4 -->
+            <div class="question">
+                <p>4. Where did we click this photo?</p>
+                <img src="./image/couple.jpeg" class="quiz-image">
+                <label><input type="radio" name="q4" value="0"> Restaurant</label>
+                <label><input type="radio" name="q4" value="5"> Seafront</label>
+                <label><input type="radio" name="q4" value="10"> Cafe</label>
+                <label><input type="radio" name="q4" value="15" data-correct="true"> Mall</label>
+                <button type="button" onclick="showBirthday()">Finish 💖</button>
+            </div>
+
+        </form>
+
+        <!-- 🎂 Birthday Card -->
+        <div id="birthdayCard" class="birthday-card">
+            <img src="./image/Birthday_card.jpeg" class="birthday-image">
+            <h2 id="birthdayText">Happy Birthday ❤️</h2>
+            <p class="birthday-sub">You are my favorite person in every lifetime ✨</p>
+        </div>
+
+        <div id="result"></div>
+    </div>
+</div>
+
+<!-- Glass Modal -->
+<div id="wrongModal" class="wrong-modal">
+    <div class="wrong-box">
+        <p id="wrongText"></p>
+        <button onclick="closeWrong()">Continue</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
