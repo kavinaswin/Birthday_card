@@ -140,3 +140,144 @@ button {
     from{opacity:0; transform:scale(0.9);}
     to{opacity:1; transform:scale(1);}
 }
+
+/* ============================= */
+/* 📱 MOBILE & SMALL SCREEN FIXES */
+/* ============================= */
+
+/* Prevent zoom issues on mobile */
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Improve tap targets */
+label,
+button {
+    touch-action: manipulation;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+
+    body {
+        padding: 30px 14px;
+    }
+
+    .quiz-wrapper {
+        max-width: 100%;
+    }
+
+    .quiz-box {
+        padding: 26px 20px;
+        border-radius: 16px;
+    }
+
+    .progress-section {
+        padding: 14px;
+        margin-bottom: 18px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    label {
+        padding: 12px;
+        border-radius: 10px;
+        background: rgba(0,0,0,0.03);
+    }
+
+    #birthdayText {
+        font-size: 30px;
+    }
+
+    .birthday-sub {
+        font-size: 16px;
+    }
+}
+
+/* ===== Mobile Phones ===== */
+@media (max-width: 480px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .quiz-box {
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+
+    .quiz-image {
+        border-radius: 10px;
+    }
+
+    .progress-text {
+        font-size: 13px;
+    }
+
+    .progress-container {
+        height: 10px;
+    }
+
+    label {
+        font-size: 15px;
+        margin: 8px 0;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 11px;
+        border-radius: 10px;
+    }
+
+    .wrong-box {
+        width: 85%;
+        padding: 22px;
+        border-radius: 14px;
+    }
+
+    #heartFlash {
+        font-size: 70px;
+    }
+
+    #birthdayText {
+        font-size: 26px;
+        letter-spacing: 1px;
+    }
+
+    .birthday-sub {
+        font-size: 15px;
+    }
+}
+
+/* ===== Extra Small Devices ===== */
+@media (max-width: 360px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .quiz-box {
+        padding: 18px 14px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    #birthdayText {
+        font-size: 24px;
+    }
+}
+
