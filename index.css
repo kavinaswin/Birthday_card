@@ -1,31 +1,69 @@
+/* ============================= */
+/* 🌟 BASE LAYOUT FIX (NO EMPTY SPACE) */
+/* ============================= */
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
 body {
     font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 24px 14px;
+
     background:
         radial-gradient(circle at 15% 25%, rgba(255, 0, 85, 0.25), transparent 45%),
         radial-gradient(circle at 85% 35%, rgba(199, 21, 133, 0.2), transparent 50%),
         linear-gradient(135deg, #fff0f4, #ffd9e4, #ffc3d4);
-    margin: 0;
-    padding: 40px 15px;
+
+    min-height: 100vh;
+
+    /* ⭐ center layout properly */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
+/* ============================= */
+/* 📦 WRAPPER */
+/* ============================= */
+
 .quiz-wrapper {
+    width: 100%;
     max-width: 520px;
-    margin: auto;
     text-align: center;
 }
 
+/* ============================= */
+/* 💎 PREMIUM CARD */
+/* ============================= */
+
 .quiz-box {
     position: relative;
-    padding: 32px;
+    padding: 28px 24px;
     border-radius: 18px;
     background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow:
+        0 20px 60px rgba(255, 105, 180, 0.15),
+        0 10px 25px rgba(0,0,0,0.08);
 }
+
+/* ============================= */
+/* ❓ QUESTIONS */
+/* ============================= */
 
 .question { display: none; text-align: left; }
 .question.active { display: block; }
 
-label { display:block; margin:10px 0; cursor:pointer; }
+label {
+    display:block;
+    margin:10px 0;
+    cursor:pointer;
+}
+
+/* ============================= */
+/* 🖼 IMAGE */
+/* ============================= */
 
 .quiz-image {
     width:100%;
@@ -33,12 +71,17 @@ label { display:block; margin:10px 0; cursor:pointer; }
     margin:10px 0;
 }
 
-/* Progress */
+/* ============================= */
+/* 📊 PROGRESS */
+/* ============================= */
+
 .progress-section {
-    background:white;
-    padding:16px;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(12px);
+    padding:14px 16px;
     border-radius:14px;
-    margin-bottom:20px;
+    margin-bottom:18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
 .progress-container {
@@ -55,7 +98,16 @@ label { display:block; margin:10px 0; cursor:pointer; }
     transition:0.4s ease;
 }
 
-/* Button */
+.progress-text {
+    margin-top:6px;
+    font-size:14px;
+    color:#444;
+}
+
+/* ============================= */
+/* 🔘 BUTTON */
+/* ============================= */
+
 button {
     background:linear-gradient(135deg,#2b2b2b,#000);
     color:white;
@@ -64,19 +116,24 @@ button {
     border-radius:10px;
     margin-top:12px;
     cursor:pointer;
+    width: auto;
 }
 
-/* Modal */
+/* ============================= */
+/* 🧊 GLASS MODAL */
+/* ============================= */
+
 .wrong-modal {
     display:none;
     position:fixed;
     inset:0;
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(10px);
     background:rgba(0,0,0,0.15);
 }
 
 .wrong-box {
-    background:rgba(255,255,255,0.7);
+    background:rgba(255,255,255,0.75);
+    backdrop-filter: blur(20px);
     padding:28px;
     border-radius:16px;
     width:270px;
@@ -85,9 +142,13 @@ button {
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
 }
 
-/* ❤️ Heart */
+/* ============================= */
+/* ❤️ HEART POP */
+/* ============================= */
+
 #heartFlash {
     position:fixed;
     top:50%;
@@ -95,15 +156,23 @@ button {
     transform:translate(-50%,-50%) scale(0.5);
     font-size:90px;
     opacity:0;
+    pointer-events:none;
 }
-#heartFlash.show { animation:heartPop 1.6s ease forwards; }
+
+#heartFlash.show {
+    animation:heartPop 1.6s ease forwards;
+}
+
 @keyframes heartPop {
     0%{opacity:0; transform:translate(-50%,-30%) scale(0.5);}
     30%{opacity:1; transform:translate(-50%,-50%) scale(1.2);}
     100%{opacity:0; transform:translate(-50%,-120%) scale(1);}
 }
 
-/* 🎂 Birthday Card */
+/* ============================= */
+/* 🎂 BIRTHDAY CARD */
+/* ============================= */
+
 .birthday-card {
     display:none;
     text-align:center;
@@ -142,39 +211,22 @@ button {
 }
 
 /* ============================= */
-/* 📱 MOBILE & SMALL SCREEN FIXES */
+/* 📱 MOBILE RESPONSIVE */
 /* ============================= */
 
-/* Prevent zoom issues on mobile */
-html {
-    -webkit-text-size-adjust: 100%;
-}
-
-/* Improve tap targets */
-label,
-button {
+label, button {
     touch-action: manipulation;
 }
 
-/* ===== Tablet ===== */
+/* Tablet */
 @media (max-width: 768px) {
 
     body {
-        padding: 30px 14px;
-    }
-
-    .quiz-wrapper {
-        max-width: 100%;
+        padding: 24px 12px;
     }
 
     .quiz-box {
-        padding: 26px 20px;
-        border-radius: 16px;
-    }
-
-    .progress-section {
-        padding: 14px;
-        margin-bottom: 18px;
+        padding: 24px 18px;
     }
 
     button {
@@ -192,17 +244,13 @@ button {
     #birthdayText {
         font-size: 30px;
     }
-
-    .birthday-sub {
-        font-size: 16px;
-    }
 }
 
-/* ===== Mobile Phones ===== */
+/* Mobile */
 @media (max-width: 480px) {
 
     body {
-        padding: 20px 10px;
+        padding: 18px 10px;
     }
 
     h1 {
@@ -211,36 +259,23 @@ button {
 
     .quiz-box {
         padding: 20px 16px;
-        border-radius: 14px;
-    }
-
-    .quiz-image {
-        border-radius: 10px;
-    }
-
-    .progress-text {
-        font-size: 13px;
     }
 
     .progress-container {
         height: 10px;
     }
 
-    label {
-        font-size: 15px;
-        margin: 8px 0;
+    .progress-text {
+        font-size: 13px;
     }
 
-    button {
+    label {
         font-size: 15px;
-        padding: 11px;
-        border-radius: 10px;
     }
 
     .wrong-box {
-        width: 85%;
+        width: 88%;
         padding: 22px;
-        border-radius: 14px;
     }
 
     #heartFlash {
@@ -257,23 +292,11 @@ button {
     }
 }
 
-/* ===== Extra Small Devices ===== */
+/* Extra small */
 @media (max-width: 360px) {
-
-    h1 {
-        font-size: 20px;
-    }
 
     .quiz-box {
         padding: 18px 14px;
-    }
-
-    label {
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 14px;
     }
 
     #birthdayText {
@@ -281,3 +304,10 @@ button {
     }
 }
 
+/* Short screens fix (like iPhone SE height) */
+@media (max-height: 700px) {
+    body {
+        align-items: flex-start;
+        padding-top: 30px;
+    }
+}
